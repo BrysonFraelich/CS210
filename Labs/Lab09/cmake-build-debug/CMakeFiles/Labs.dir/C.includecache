@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/cygdrive/c/Users/C22Bryson.Fraelich/CLionProjects/Labs/Lab09/lab09fixMe.c
+stdio.h
+-
+stdbool.h
+-
+stdlib.h
+-
+math.h
+-
+
