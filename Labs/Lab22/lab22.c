@@ -44,7 +44,9 @@ int main() {
      *      The struct is yourChosenVarName from above.
      */
 
-
+    int index = 12;
+    MyCadetInfo readIndex = readCadetBlk(index);
+    printCadetInfo(readIndex);
 
     /* Exercise 2 - Write a function, called, updateSqdBlk() that
      * uses a cadet's full name to find the cadet in the array of
@@ -59,6 +61,8 @@ int main() {
      * 3) Verify that it works by reading the record from the file
      * and printing it.
      */
+
+    updateSqdBlk("John Ayres", 2, cadetRecs, numCadets);
 
     /* Exercise 3 - Write a function, called, updateClassYearNameBlk()
      * that overwrites the file, lab22Data.dat, with the class
@@ -85,24 +89,45 @@ int main() {
  */
 MyCadetInfo readCadetBlk(int index){
 
-    FILE *inFile = NULL;
-    inFile = fopen("C:Users/C22Bryson.Fraelich/CLionProjects/Labs/Lab22/lab22Data.dat", "r");
-    // inFile = fopen("lab22Data.dat", "r");
-    if (inFile == NULL) {
-        printf("Could not open file lab22Data.dat.\n");
+    // FILE* in = fopen("../Labs/Lab22/lsn22Data.dat", "r");
+    FILE* in = fopen("lab22Data.dat", "rb");
+    if (in == NULL) {
+        printf("(readCadetBlk) Error creating data file: %s.\n", strerror(errno));
         exit(1);
     }
 
     MyCadetInfo fileInfo;
 
-    fseek(inFile, index * sizeof(MyCadetInfo), SEEK_SET);
-    fread(&fileInfo, sizeof(MyCadetInfo), 1, inFile);
+    fseek(in, index * sizeof(MyCadetInfo), SEEK_SET);
+    fread(&fileInfo, sizeof(MyCadetInfo), 1, in);
 
-    fclose(inFile);
+    fclose(in);
 
     return fileInfo;
 }
 
+/** ----------------------------------------------------------
+* updateSqdBlk() is used to
+* @param
+* @return
+* -----------------------------------------------------------
+*/
+MyCadetInfo updateSqdBlk(char name[], int sqd, MyCadetInfo cadetRecs[], int numCadets){
+
+    int i;
+
+    for (i = 0; i < numCadets; ++i){
+        if(strcmp(cadetRecs[i].name, name) == 0){
+            FILE* in = fopen("lab22Data.dat", "rb");
+            if(in == NULL){
+                printf("Error opening file in updateSqdBlk");
+            }
+            fseek(in, i * sizeof(MyCadetInfo) + 50, SEEK_SET);
+            fwrite("squad", i, sizeof(sqd), in);
+            fclose(in);
+        }
+    }
+}
 
 /** ----------------------------------------------------------
  * writeDataBlk() is used to the entire cadet record array
@@ -115,15 +140,34 @@ MyCadetInfo readCadetBlk(int index){
 int writeDataBlk(MyCadetInfo cadetRecords[], int numCadets) {
 
     // Open an output file for writing
-    FILE *out = fopen("../Labs/Lab22/lab22Data.dat", "w");
+    // FILE *out = fopen("../Labs/Lab22/lsn22Data.dat", "w");
+    FILE *out = fopen("lab22Data.dat", "wb");
     if (out == NULL) {
-        printf("Error creating data file: %s.\n", strerror(errno));
+        printf("(writeDataBlk) Error creating data file: %s.\n", strerror(errno));
         exit(1);
     }
 
     size_t retVal = fwrite(cadetRecords, sizeof(MyCadetInfo), numCadets, out);
     fclose(out);
     return retVal;
+
+}
+
+MyCadetInfo updateClassYearNameBlk(MyCadetInfo cadetRecords[], int numCadets){
+    FILE* in = fopen("lab22Data.dat", "rb");
+    if (in == NULL){
+        printf("Error opening file in updateClassYearNameBlk");
+    }
+    int i;
+    for(i = 0; i < numCadets; ++i){
+        switch (cadetRecords[i].classYear){
+            case 2022:
+
+                fseek(in, i * sizeof(MyCadetInfo), SEEK_SET);
+        }
+    }
+
+    fclose(in);
 
 }
 
@@ -140,9 +184,10 @@ int writeDataBlk(MyCadetInfo cadetRecords[], int numCadets) {
 int writeCadetBlk(MyCadetInfo *cadet, int location) {
 
     // Open an output file for writing
-    FILE *out = fopen("../Labs/Lab22/lab22Data.dat", "r+");
+    // FILE *out = fopen("../Labs/Lab22/lsn22Data.dat", "r+");
+    FILE *out = fopen("lab22Data.dat", "rb+");
     if (out == NULL) {
-        printf("Error creating data file: %s.\n", strerror(errno));
+        printf("(writeCadetBlk) Error creating data file: %s.\n", strerror(errno));
         exit(1);
     }
     fseek(out, sizeof(MyCadetInfo) * (long) location, SEEK_SET);
@@ -161,9 +206,10 @@ int writeCadetBlk(MyCadetInfo *cadet, int location) {
 int getDataText(MyCadetInfo cadetRecords[]) {
 
     // Open an input file for reading
-    FILE *in = fopen("../Labs/Lab22/lsn22Data.txt", "r");
+    // FILE* in = fopen("../Labs/Lab22/lsn22Data.dat", "r");
+    FILE* in = fopen("lab22Data.dat", "rb");
     if (in == NULL) {
-        printf("Error opening data file: %s.\n", strerror(errno));
+        printf("(getDataText) Error opening data file: %s.\n", strerror(errno));
         exit(1);
     }
 

@@ -13,7 +13,6 @@
 // define our cadet info type for later use
 typedef struct {
     char name[50];
-    int age;
     int squad;
     int classYear;
 } MyCadetInfo;
@@ -26,6 +25,16 @@ typedef struct {
  * -----------------------------------------------------------
  */
 MyCadetInfo readCadetBlk(int index);
+
+/** ----------------------------------------------------------
+* updateSqdBlk() is used to
+* @param
+* @return
+* -----------------------------------------------------------
+*/
+MyCadetInfo updateSqdBlk(char name[], int sqd, MyCadetInfo cadetRecs[], int numCadets);
+
+MyCadetInfo updateClassYearNameBlk(MyCadetInfo cadetRecords[], int numCadets);
 
 /** ----------------------------------------------------------
  * getDataText() is used to read MyCadetInfo typed records
