@@ -1,0 +1,1 @@
+/usr/bin/cc -g  -Wl,--enable-auto-import CMakeFiles/lab19functs.h.dir/lab19functs.c.o CMakeFiles/lab19functs.h.dir/lab19main.c.o  -o lab19functs.h.exe -Wl,--out-implib,liblab19functs.h.dll.a -Wl,--major-image-version,0,--minor-image-version,0 

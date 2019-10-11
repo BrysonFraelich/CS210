@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/cygdrive/c/Users/C22Bryson.Fraelich/CLionProjects/A2/pa2functs.c
+pa2functs.h
+/cygdrive/c/Users/C22Bryson.Fraelich/CLionProjects/A2/pa2functs.h
+
+/cygdrive/c/Users/C22Bryson.Fraelich/CLionProjects/A2/pa2functs.h
+stdio.h
+-
+stdlib.h
+-
+time.h
+-
+string.h
+-
+math.h
+-
+
+/cygdrive/c/Users/C22Bryson.Fraelich/CLionProjects/A2/pa2main.c
+pa2functs.h
+/cygdrive/c/Users/C22Bryson.Fraelich/CLionProjects/A2/pa2functs.h
+

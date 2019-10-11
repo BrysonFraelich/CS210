@@ -1,0 +1,1 @@
+/usr/bin/cc -g  -Wl,--enable-auto-import CMakeFiles/pa2functs.h.dir/pa2functs.c.o CMakeFiles/pa2functs.h.dir/pa2main.c.o  -o pa2functs.h.exe -Wl,--out-implib,libpa2functs.h.dll.a -Wl,--major-image-version,0,--minor-image-version,0 

@@ -1,0 +1,1 @@
+/usr/bin/cc -g  -Wl,--enable-auto-import CMakeFiles/lab20functs.h.dir/lab20functs.c.o CMakeFiles/lab20functs.h.dir/lab20main.c.o  -o lab20functs.h.exe -Wl,--out-implib,liblab20functs.h.dll.a -Wl,--major-image-version,0,--minor-image-version,0 

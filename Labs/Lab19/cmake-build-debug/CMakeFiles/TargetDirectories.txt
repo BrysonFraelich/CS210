@@ -1,0 +1,3 @@
+/cygdrive/c/Users/C22Bryson.Fraelich/CLionProjects/Labs/Lab19/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/cygdrive/c/Users/C22Bryson.Fraelich/CLionProjects/Labs/Lab19/cmake-build-debug/CMakeFiles/lab19functs.h.dir
+/cygdrive/c/Users/C22Bryson.Fraelich/CLionProjects/Labs/Lab19/cmake-build-debug/CMakeFiles/edit_cache.dir

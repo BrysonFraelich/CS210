@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/cygdrive/c/Users/C22Bryson.Fraelich/CLionProjects/Labs/Lab20/lab20functs.c
+lab20functs.h
+/cygdrive/c/Users/C22Bryson.Fraelich/CLionProjects/Labs/Lab20/lab20functs.h
+
+/cygdrive/c/Users/C22Bryson.Fraelich/CLionProjects/Labs/Lab20/lab20functs.h
+stdbool.h
+-
+stdio.h
+-
+stdlib.h
+-
+ctype.h
+-
+string.h
+-
+
