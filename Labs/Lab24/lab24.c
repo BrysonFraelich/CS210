@@ -49,7 +49,7 @@ int main() {
      * hold the size of a data set of random integers.
      * The size should vary between 1 and 1000.
      */
-    int size = (rand() % 1000) + 1;
+    int dataSetSize = (rand() % 1000) + 1;
 
     /** TASK 3 - complete the fillArray() function implementation
      * and call it.
@@ -60,6 +60,9 @@ int main() {
      * randomly generated data set size (from task 2), and the number
      * of times doubled (returned by the function).
      */
+     int arraySize = sizeof(array);
+     int count = fillArray(array, arraySize, dataSetSize);
+     printf("Array Size: %d, DataSetSize: %d, Number of times doubled: %d", arraySize, dataSetSize, count);
 
     /** TASK 4 -  IMPORTANT - When you submit this lab to zyBooks be
      *     sure that you comment out the line in main() that calls
@@ -85,12 +88,19 @@ int main() {
  */
 int fillArray(int *array, int arraySize, int dataSetSize) {
     int i;
+    int count = 0;
 
-    for(i = 0; i < arraySize; ++i){
-
+    for(i = 0; i < dataSetSize; ++i){
+        if(i == arraySize - 1){
+            arraySize = 2 * arraySize;
+            count = count + 1;
+            array = (int*)realloc(array, sizeof(int) * arraySize);
+        } else {
+            array[i] = rand();
+        }
     }
 
-    return 0;
+    return count;
 }
 
 /** ----------------------------------------------------------
