@@ -19,8 +19,8 @@
 #include "pex2functs.h"
 
 int main() {
-    DNA *sequence = NULL;
-    sequence = malloc(sizeof(DNA));
+    DNA *sequence = NULL;           // Pointer of DNA_Struct type, for the sequences to be read
+    sequence = malloc(sizeof(DNA)); // Sets aside memory for the sequence array with the size of DNA_Struct type
 
     // Reads the information in from the pex2Data.txt file
     readFile("C:\\Users\\C22Bryson.Fraelich\\CLionProjects\\CS210\\PEX2\\pex2Data.txt", sequence);
