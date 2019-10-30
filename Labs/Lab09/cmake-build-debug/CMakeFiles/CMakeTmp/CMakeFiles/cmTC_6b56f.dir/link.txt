@@ -1,0 +1,1 @@
+/usr/bin/c++.exe    -Wl,--enable-auto-import  CMakeFiles/cmTC_6b56f.dir/testCXXCompiler.cxx.o  -o cmTC_6b56f.exe -Wl,--out-implib,libcmTC_6b56f.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
